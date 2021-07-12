@@ -1,0 +1,34 @@
+https://secure.helpscout.net/authentication/authorizeClientApplication?client_id=ou8NXgQoxLuGIkaV7rzgKEiIGqhxqC3c&state=QK4PuahP96FwkeHYkKvwndeWKXwsORVI
+https://www.google.com/?code=R5tO4xhVl29JUvA1T9ObUBfP2Ea7dkv5&state=QK4PuahP96FwkeHYkKvwndeWKXwsORVI
+
+client_id - ou8NXgQoxLuGIkaV7rzgKEiIGqhxqC3c
+client_secret - QK4PuahP96FwkeHYkKvwndeWKXwsORVI
+Code - M4FP6qhtNtIMSQwsIC2HOoNzRRPJIUsl
+State - QK4PuahP96FwkeHYkKvwndeWKXwsORVI
+
+Request Token
+
+curl -X POST https://api.helpscout.net/v2/oauth2/token \
+ --data 'code=R5tO4xhVl29JUvA1T9ObUBfP2Ea7dkv5' \
+ --data 'client_id=ou8NXgQoxLuGIkaV7rzgKEiIGqhxqC3c' \
+ --data 'client_secret=QK4PuahP96FwkeHYkKvwndeWKXwsORVI' \
+ --data 'grant_type=authorization_code'
+
+Refresh Token
+
+curl -X POST https://api.helpscout.net/v2/oauth2/token \
+ --data 'refresh_token={refresh_token}' \
+ --data 'client_id={application_id}' \
+ --data 'client_secret={application_secret}' \
+ --data 'grant_type=refresh_token'
+
+ TOKEN
+
+ {"refresh_token":"2L2XOCZlyCs6k36LYli0ZlfdA8rzFar9","token_type":"bearer","access_token":"GtQhG5a2msRftHJoRZ5lN511tZTgA2QM","expires_in":172800}
+
+Request - 
+GET /v2/conversations HTTP/1.1
+Authorization: GtQhG5a2msRftHJoRZ5lN511tZTgA2QM
+
+
+ curl https://api.helpscout.net/v2/conversations?mailbox=9ed04397d2b9d38a&status=Active
